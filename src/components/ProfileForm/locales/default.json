@@ -1,0 +1,19 @@
+{
+    "title": "Dados de Perfil",
+    "description": "Preencha com os dados do seu perfil para encontrar a moradia ideal para você!",
+    "fieldDateBirth": "Data de nascimento",
+    "fieldDateBirthError": "Informe uma data de nascimento válida!",
+    "fieldSmokes": "Você é",
+    "optionSmoker": "Fumante",
+    "optionNSmoker": "Não fumante",
+    "fieldPet": "Animal de estimação",
+    "optionHave": "Possui",
+    "optionDHave": "Não possui",
+    "fieldGender": "Gênero",
+    "optionMan": "Masculino",
+    "optionWoman": "Feminino",
+    "optionOther": "Outro",
+    "buttonContinue": "Continuar",
+    "buttonSkip": "Pular",
+    "buttonPrevious": "Voltar"
+}

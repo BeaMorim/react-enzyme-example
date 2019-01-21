@@ -1,0 +1,70 @@
+@import '../App/style.less';
+
+.register {
+	background: #39323a url(../../images/neighborhood.jpg) !important;
+	background-size: cover !important;
+	background-repeat: no-repeat !important;
+
+	header {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-bottom: 5%;
+		font-family: 'Raleway', sans-serif;
+	
+		img {
+			width: 45px;
+		}
+		h2 {
+			font-size: 1.75em;
+		}
+		i {
+			font-size: 36px;
+		}
+	}
+
+	>.ant-row {
+		background-color: rgba(47, 47, 44, 0.8);
+	}
+
+	.register-content {
+		min-height: 100vh;
+		height: 100%;
+		padding: 2%;
+		background-color: white;
+
+		.checkbox-list {
+			.ant-form-item {
+				&:first-child {
+					margin-bottom: 0;
+				}
+
+				label {
+					font-size: 0.9em;
+				}
+			}
+		}
+
+		.ant-btn-dashed {
+			color: #bfbfbf;
+		}
+
+		.button-list {
+			margin: 20px 0 40px 0;
+		}
+	}
+
+	.contact-item {
+		margin-top: 10px;
+		
+		.ant-form-item-children {
+			display: flex;
+			align-items: center;
+		}
+		.anticon {
+			margin-left: 5px;
+		}
+	}
+}
+
+

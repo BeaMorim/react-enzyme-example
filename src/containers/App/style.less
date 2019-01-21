@@ -1,0 +1,93 @@
+@import '~antd/dist/antd.css';
+
+
+body {
+    background-color: red;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+.no-margin{
+    margin: 0 !important;
+}
+
+.mrg-bottom-15 {
+    margin-bottom: 15px;
+}
+
+.ant-form {
+	.ant-form-item {
+		margin: 0 5px;
+		margin-bottom: 14px;
+	
+		.ant-form-item-label {
+			text-align: left;
+			
+			label {
+				white-space: normal;
+				font-size: 0.8125em;
+			}
+		}
+	
+		.ant-form-item-control {
+			line-height: initial;
+	
+			input {
+				border-radius: 15px;
+			}
+		}
+
+		.ant-form-explain {
+			font-size: 0.9em;
+		}
+	}
+
+	.form-input-mask {
+		i {
+			line-height: 0;
+			left: 12px;
+			top: 50%;
+			position: absolute;
+			transform: translateY(-50%);
+		}
+
+		input {
+			position: static;
+			padding-left: 30px;
+			border-radius: 15px;
+		}
+
+		.ant-form-item-label {
+			display: block;
+		}
+	}
+	
+	.ant-radio-group {
+		display: flex;
+	
+		label {
+			flex: 1;
+			white-space: nowrap;
+			font-size: 0.9em;
+			padding: 0 12px;
+		}
+	
+		.ant-radio-button-wrapper-checked {
+			font-weight: bold;
+		}
+	}
+
+	.ant-select-selection {
+		border-radius: 20px;
+	}
+	
+	.ant-btn {
+		margin-right: 5px;
+	
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}
