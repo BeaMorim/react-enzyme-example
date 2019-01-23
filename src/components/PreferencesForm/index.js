@@ -32,91 +32,91 @@ class PreferencesForm extends Component {
 					<img src={PreferencesIcon} alt="icone preferencias" />
 					<h2>Preferências</h2>
 				</header>
-				<FormItem label={this.props.t('preferencesForm.fieldPreferToLive')} {...formItemLayout}>
+				<FormItem label='Você prefere morar apenas com' {...formItemLayout}>
 					{
 						getFieldDecorator('smokingPreferences', {
 							initialValue: 1
 						})(
 							<Radio.Group>
-								<Radio.Button value={1}>{this.props.t('preferencesForm.optionSmokers')}</Radio.Button>
-								<Radio.Button value={2}>{this.props.t('preferencesForm.optionNSmokers')}</Radio.Button>
-								<Radio.Button value={0}>{this.props.t('preferencesForm.optionIndifferent')}</Radio.Button>
+								<Radio.Button value={1}>Fumantes</Radio.Button>
+								<Radio.Button value={2}>Não fumantes</Radio.Button>
+								<Radio.Button value={0}>Indiferente</Radio.Button>
 							</Radio.Group>
 						)
 					}
 				</FormItem>
-				<FormItem label={this.props.t('preferencesForm.fieldPreferToLiveWPeopleWho')} {...formItemLayout}>
+				<FormItem label='Sobre animais domésticos, você prefere morar com pessoas que' {...formItemLayout}>
 					{
 						getFieldDecorator('petsPreferences', {
 							initialValue: 1
 						})(
 							<Radio.Group>
-								<Radio.Button value={1}>{this.props.t('preferencesForm.optionHasPet')}</Radio.Button>
-								<Radio.Button value={2}>{this.props.t('preferencesForm.optionDHavePet')}</Radio.Button>
-								<Radio.Button value={0}>{this.props.t('preferencesForm.optionIndifferent')}</Radio.Button>
+								<Radio.Button value={1}>Possuam</Radio.Button>
+								<Radio.Button value={2}>Não possuam</Radio.Button>
+								<Radio.Button value={0}>Indiferente</Radio.Button>
 							</Radio.Group>
 						)
 					}
 				</FormItem>
-				<FormItem label={this.props.t('preferencesForm.fieldPreferToLive')} {...formItemLayout}>
+				<FormItem label='Você prefere morar apenas com' {...formItemLayout}>
 					{
 						getFieldDecorator('genderPreferences', {
 							initialValue: 1
 						})(
 							<Radio.Group>
-								<Radio.Button value={1}>{this.props.t('preferencesForm.optionMen')}</Radio.Button>
-								<Radio.Button value={2}>{this.props.t('preferencesForm.optionWomen')}</Radio.Button>
-								<Radio.Button value={3}>{this.props.t('preferencesForm.optionOther')}</Radio.Button>
-								<Radio.Button value={4}>{this.props.t('preferencesForm.optionIndifferent')}</Radio.Button>
+								<Radio.Button value={1}>Homens</Radio.Button>
+								<Radio.Button value={2}>Mulheres</Radio.Button>
+								<Radio.Button value={3}>Outros</Radio.Button>
+								<Radio.Button value={4}>Indiferente</Radio.Button>
 							</Radio.Group>
 						)
 					}
 				</FormItem>
-				<FormItem label={this.props.t('preferencesForm.fieldPreferToHave')} {...formItemLayout}>
+				<FormItem label='Você prefere um lugar com quarto' {...formItemLayout}>
 					{
 						getFieldDecorator('bedroomPreferences', {
 							initialValue: 1
 						})(
 							<Radio.Group>
-								<Radio.Button value={1}>{this.props.t('preferencesForm.optionIndividual')}</Radio.Button>
-								<Radio.Button value={2}>{this.props.t('preferencesForm.optionShared')}</Radio.Button>
-								<Radio.Button value={0}>{this.props.t('preferencesForm.optionIndifferent')}</Radio.Button>
+								<Radio.Button value={1}>Individual</Radio.Button>
+								<Radio.Button value={2}>Compartilhado</Radio.Button>
+								<Radio.Button value={0}>Indiferente</Radio.Button>
 							</Radio.Group>
 						)
 					}
 				</FormItem>
 				<Row>
 					<Col sm={{span: 12, offset: 4}}>
-						<FormItem label={this.props.t('preferencesForm.fieldParkingSpace')}>
+						<FormItem label='Sobre vaga de garagem, você'>
 							{
 								getFieldDecorator('wantParkingSpaces', {
 									initialValue: true
 								})(
 									<Radio.Group>
-										<Radio.Button value={true}>{this.props.t('preferencesForm.optionNeed')}</Radio.Button>
-										<Radio.Button value={false}>{this.props.t('preferencesForm.optionDNeed')}</Radio.Button>
+										<Radio.Button value={true}>Precisa</Radio.Button>
+										<Radio.Button value={false}>Não precisa</Radio.Button>
 									</Radio.Group>
 								)							
 							}
 						</FormItem>
 					</Col>
 					<Col sm={6}>
-						<FormItem label={this.props.t('preferencesForm.fieldAmount')}>
+						<FormItem label='Quantidade'>
 							{
 								getFieldDecorator('numberOfParkingSpaces', {
 									rules: [{
 										pattern: '^[1-9][0-9]*$',
-										message: this.props.t('preferencesForm.fieldAmountValidation')
+										message: 'Informe uma quantidade válida!'
 									}]
 								})(
-									<Input disabled={!this.getField('wantParkingSpaces')} type='number' placeholder={this.props.t('preferencesForm.fieldAmount')} />
+									<Input disabled={!this.getField('wantParkingSpaces')} type='number' placeholder='Quantidade' />
 								)
 							}
 						</FormItem>
 					</Col>
 				</Row>
 				<FormItem {...formItemLayout} className='button-list'>
-					<Button type='primary' htmlType='submit'> Finalizar </Button>
+					<Button type='primary' htmlType='submit' loading={this.props.loading}>Finalizar</Button>
 				</FormItem>
 			</Form>
 		);

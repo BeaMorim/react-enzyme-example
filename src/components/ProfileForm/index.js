@@ -12,7 +12,7 @@ class ProfileForm extends Component {
 		let dateBirth = moment(value, 'DD/MM/YYYY', true).format();
 		let today = moment(new Date()).format('MM/DD/YYYY');
 		if(!moment(value, 'DD/MM/YYYY', true).isValid() || new Date(dateBirth) >= new Date(today)) {
-			callback(this.props.t('profileForm.fieldDateBirthError'));
+			callback('Informe uma data de nascimento válida!');
 		}
 	
 		callback();
@@ -45,48 +45,48 @@ class ProfileForm extends Component {
 						})(
 							<div>
 								<Icon type='calendar' style={{ color: 'rgba(0,0,0,.25)' }} />
-								<InputMask mask='99/99/9999' maskChar={null} className='ant-input' placeholder={this.props.t('profileForm.fieldDateBirth')}/>
+								<InputMask mask='99/99/9999' maskChar={null} className='ant-input' placeholder='Data de nascimento'/>
 							</div>
 						)
 					}
 				</FormItem>
-				<FormItem label={this.props.t('profileForm.fieldGender')} {...formItemLayout}>
+				<FormItem label='Gênero' {...formItemLayout}>
 					{
 						getFieldDecorator('gender', {
 							initialValue: 1
 						})(
 							<Radio.Group>
-								<Radio.Button value={1}>{this.props.t('profileForm.optionMan')}</Radio.Button>
-								<Radio.Button value={2}>{this.props.t('profileForm.optionWoman')}</Radio.Button>
-								<Radio.Button value={3}>{this.props.t('profileForm.optionOther')}</Radio.Button>
+								<Radio.Button value={1}>Masculino</Radio.Button>
+								<Radio.Button value={2}>Feminino</Radio.Button>
+								<Radio.Button value={3}>Outro</Radio.Button>
 							</Radio.Group>
 						)
 					}
 				</FormItem>
 				<Row>
 					<Col sm={{span: 9, offset: 4}}>
-						<FormItem label={this.props.t('profileForm.fieldSmokes')}>
+						<FormItem label='Você é:'>
 							{
 								getFieldDecorator('isASmoker', {
 									initialValue: true
 								})(
 									<Radio.Group>
-										<Radio.Button value={true}>{this.props.t('profileForm.optionSmoker')}</Radio.Button>
-										<Radio.Button value={false}>{this.props.t('profileForm.optionNSmoker')}</Radio.Button>
+										<Radio.Button value={true}>Fumante</Radio.Button>
+										<Radio.Button value={false}>Não fumante</Radio.Button>
 									</Radio.Group>
 								)
 							}
 						</FormItem>
 					</Col>
 					<Col sm={9}>
-						<FormItem label={this.props.t('profileForm.fieldPet')}>
+						<FormItem label='Animal de estimação'>
 							{
 								getFieldDecorator('hasPet', {
 									initialValue: true
 								})(
 									<Radio.Group>
-										<Radio.Button value={true}>{this.props.t('profileForm.optionHave')}</Radio.Button>
-										<Radio.Button value={false}>{this.props.t('profileForm.optionDHave')}</Radio.Button>
+										<Radio.Button value={true}>Possui</Radio.Button>
+										<Radio.Button value={false}>Não possui</Radio.Button>
 									</Radio.Group>
 								)
 							}
@@ -94,8 +94,8 @@ class ProfileForm extends Component {
 					</Col>
 				</Row>
 				<FormItem {...formItemLayout} className='button-list'>
-					<Button onClick={this.props.skip}>{this.props.t('profileForm.buttonSkip')}</Button>
-					<Button type='primary' htmlType='submit'>{this.props.t('profileForm.buttonContinue')}</Button>
+					<Button onClick={this.props.skip}>Pular</Button>
+					<Button type='primary' htmlType='submit'>Continuar</Button>
 				</FormItem>
 			</Form>
 		);

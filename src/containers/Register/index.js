@@ -33,6 +33,28 @@ class Register extends Component {
         return values;
     };
 
+    saveFormData = (event, form) => {
+		event.preventDefault();
+
+		let dataForm = {};
+		let currentStep = this.state.current;
+
+		form.validateFields((err, values) => { 
+			if(!err) {
+				dataForm = this.formatData(values);
+				currentStep = this.state.current + 1;
+			}
+        });
+        
+		this.setState({
+			current: currentStep,
+			user: {
+				...this.state.user,
+				...dataForm,
+			}
+        });
+	};
+
     skip = (event) => {
         event.preventDefault();
 
@@ -41,7 +63,7 @@ class Register extends Component {
     };
 
     registerUser = (event) => {
-        this.setState({ loadingSkip: true });
+        this.setState({ loading: true });
 
         // registerUser(this.state.user)
     };
@@ -85,8 +107,7 @@ class Register extends Component {
                                 <PreferencesForm 
                                     submit={this.registerUser}
                                     skip={this.skipLast}
-                                    loadingSkip={this.state.loadingSkip}
-                                    loadingEnd={this.state.loadingEnd} /> 
+                                    loading={this.state.loading} /> 
                             }  
                         </div>
                     </Col>    

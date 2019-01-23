@@ -52,104 +52,106 @@ class PersonalDataForm extends Component {
 		};
 
 		return (
-			<Form onSubmit={(e) => this.props.saveFormData(e, this.props.form, this.state.userPhoto)} layout='vertical'>
-				<header>
-					<img src={PersonalDataIcon} alt='Dados Pessoais' />
-					<h2>Dados pessoais</h2>
-				</header>
-				<FormItem {...formItemLayout}>
-					{
-						getFieldDecorator('userName', {
-							rules: [{ 
-								required: true, 
-								message: "Por favor informe seu nome!",
-								initialValue: this.props.user.userName
-							}],
-						})(
-							<Input prefix={<Icon type='user' style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Nome"/>
-						)
-					}
-				</FormItem>
-				<FormItem {...formItemLayout}>
-					{
-						getFieldDecorator('email', {
-							rules: [{ 
-								required: true, 
-								message: "Por favor, informe o e-mail!",
-							}],
-							validateFirst: true
-						})(
-							<Input prefix={<Icon type='mail' style={{ color: 'rgba(0,0,0,.25)' }} />} type='email' placeholder="E-mail" />
-						)
-					}
-				</FormItem>
-				<FormItem className='form-input-mask' {...formItemLayout}>
-					{
-						getFieldDecorator('cpf', {
-							rules: [{ 
-								required: true,
-								validator: this.cpfValidator
-							}],
-							validateFirst: true
-						})(
-							<div>
-								<Icon type='idcard' style={{ color: 'rgba(0,0,0,.25)' }} />
-								<InputMask mask='999.999.999-99' maskChar={null} className='ant-input' placeholder="CPF"/>
-							</div>
-						)
-					}
-				</FormItem>
-				<FormItem {...formItemLayout}>
-					{
-						getFieldDecorator('password', {
-							rules: [{ 
-								required: true,
-								message: "Por favor informe uma senha válida (mínimo de 8 caracteres)!",
-								min: 8
-							}],
-						})(
-							<Input prefix={<Icon type='lock' style={{ color: 'rgba(0,0,0,.25)' }} />} type='password' placeholder="Senha"/>
-						)
-					}
-				</FormItem>
-				<FormItem {...formItemLayout}>
-					{
-						getFieldDecorator('confirmPassword', {
-							rules: [{ 
-								required: true,
-								validator: this.confirmPasswordValidator 
-							}],
-						})(
-							<Input prefix={<Icon type='lock' style={{ color: 'rgba(0,0,0,.25)' }} />} type='password' placeholder="Confirmação de senha" />
-						)
-					}
-				</FormItem>
-				<Row className='checkbox-list'>
+			<div>
+				<Form onSubmit={(e) => this.props.saveFormData(e, this.props.form, this.state.userPhoto)} layout='vertical'>
+					<header>
+						<img src={PersonalDataIcon} alt='Dados Pessoais' />
+						<h2>Dados pessoais</h2>
+					</header>
 					<FormItem {...formItemLayout}>
 						{
-							getFieldDecorator('isProfileAnnounced', {
-								valuePropName: 'checked',
-								initialValue: false
+							getFieldDecorator('userName', {
+								rules: [{ 
+									required: true, 
+									message: "Por favor informe seu nome!",
+									initialValue: this.props.user.userName
+								}],
 							})(
-								<Checkbox>Anunciar perfil</Checkbox>
+								<Input prefix={<Icon type='user' style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Nome"/>
 							)
 						}
 					</FormItem>
 					<FormItem {...formItemLayout}>
 						{
-							getFieldDecorator('wantEmail', {
-								valuePropName: 'checked',
-								initialValue: false
+							getFieldDecorator('email', {
+								rules: [{ 
+									required: true, 
+									message: "Por favor, informe o e-mail!",
+								}],
+								validateFirst: true
 							})(
-								<Checkbox>Receber mensagens de atualizações no e-mail</Checkbox>
+								<Input prefix={<Icon type='mail' style={{ color: 'rgba(0,0,0,.25)' }} />} type='email' placeholder="E-mail" />
 							)
 						}
 					</FormItem>
-				</Row>
-				<FormItem {...formItemLayout}>
-					<Button type='primary' htmlType='submit'>Continuar</Button>
-				</FormItem>
-			</Form>
+					<FormItem className='form-input-mask' {...formItemLayout}>
+						{
+							getFieldDecorator('cpf', {
+								rules: [{ 
+									required: true,
+									validator: this.cpfValidator
+								}],
+								validateFirst: true
+							})(
+								<div>
+									<Icon type='idcard' style={{ color: 'rgba(0,0,0,.25)' }} />
+									<InputMask mask='999.999.999-99' maskChar={null} className='ant-input' placeholder="CPF"/>
+								</div>
+							)
+						}
+					</FormItem>
+					<FormItem {...formItemLayout}>
+						{
+							getFieldDecorator('password', {
+								rules: [{ 
+									required: true,
+									message: "Por favor informe uma senha válida (mínimo de 8 caracteres)!",
+									min: 8,
+								}],
+							})(
+								<Input prefix={<Icon type='lock' style={{ color: 'rgba(0,0,0,.25)' }} />} type='password' placeholder="Senha"/>
+							)
+						}
+					</FormItem>
+					<FormItem {...formItemLayout}>
+						{
+							getFieldDecorator('confirmPassword', {
+								rules: [{ 
+									required: true,
+									validator: this.confirmPasswordValidator 
+								}],
+							})(
+								<Input prefix={<Icon type='lock' style={{ color: 'rgba(0,0,0,.25)' }} />} type='password' placeholder="Confirmação de senha" />
+							)
+						}
+					</FormItem>
+					<Row className='checkbox-list'>
+						<FormItem {...formItemLayout}>
+							{
+								getFieldDecorator('isProfileAnnounced', {
+									valuePropName: 'checked',
+									initialValue: false
+								})(
+									<Checkbox>Anunciar perfil</Checkbox>
+								)
+							}
+						</FormItem>
+						<FormItem {...formItemLayout}>
+							{
+								getFieldDecorator('wantEmail', {
+									valuePropName: 'checked',
+									initialValue: false
+								})(
+									<Checkbox>Receber mensagens de atualizações no e-mail</Checkbox>
+								)
+							}
+						</FormItem>
+					</Row>
+					<FormItem {...formItemLayout}>
+						<Button type='primary' htmlType='submit'>Continuar</Button>
+					</FormItem>
+				</Form>
+			</div>
 		);
 	}
 }
